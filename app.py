@@ -5,10 +5,10 @@ from datetime import datetime
 # 1. Configuração Visual
 st.set_page_config(page_title="Casamento Adriana & Gilmar", page_icon="💍")
 
-# Ajuste do estilo (Corrigido para unsafe_allow_html)
+# Estilo para botões e layout
 st.markdown("""
     <style>
-    .stButton>button { width: 100%; border-radius: 20px; height: 3em; background-color: #f0e4d7; color: #5d4037; }
+    .stButton>button { width: 100%; border-radius: 20px; height: 3em; background-color: #f0e4d7; color: #5d4037; font-weight: bold; }
     .main { text-align: center; }
     </style>
     """, unsafe_allow_html=True)
@@ -18,23 +18,34 @@ st.write("### Adriana & Gilmar")
 st.write("28 de Junho de 2026")
 st.write("---")
 
-# 2. SEU TOKEN DO DROPBOX
-DROPBOX_TOKEN = 'sl.u.AGXodsnoHSOOX1XpMFcmPTzdBF60L8HfHWQW7munRTfW6aMT9rzQd-ywO6eRDmTeR36SljwsQoEd1rY6KpsO2l1RcwlYt1wy-BDjlX3p2MlYZaANXOqvExnIW-2sTL9Ss9SwcnV1wqwK9V4z9OavDfXANFMMPpu9gOD6uxdvWgBUjyvpamoY-3mgo4GYc3-ZCsQX-6qa6TxrqL9Gfy5F6Jdjh4X9WIRuJXxt9H6xzXOz9o2bIE_6Ncg4a_1bJLccSjvPr7YJhFHOh2ZUpp1o5RMla3PHPwathfljToEthc9Ri1GuX6vRuY63_C-5Cz5pR4Ixg-T5TxubOLC6Yp5Xg5ROB6h3zp9q_B3kkmcCmKyEGSKA9MSoEHgLPk4Yc1ndGjRg-e7RYkPu_Gs1blZUT7RGhO_quXJEF4y-kJZKeq3FF96bCYLLeO1CQTAmbAtEyQmM4b5_q1g46Z9875ZI6ELkz_qsAXUe7r3upahfC7ItWQm1ObApHczBhH07HqAJLsq06Qkav2pJeemT-NtHu940ycS5jI3AntmorMySKMKNFrZ6IljkQYV27GzGzj4d4LMQyPKFSEdVIqVC35tlUkLdh2BIkgfqZkgGv6hIDfqzBjWAkVo1wVoCkXpwTDcX9_rev_WhzTuYd-Tv1zbeE1PFUjH6VQT8FtDZFzRFgLaWKR9cXD3iYR1Qk7i4fe8KvefEAS-01VdPfY62W8aUzS2JU-dFg2z_2rPyif9-3ZWf5yOBjXDHYL6uLqnau8oKXhMDDIJIOYtn5Y-6Tvk08-hUg2XT8SK9z7Bjga5i-N_iqeuSSySrQVXUXz3dcGH_5EP-BQeCMHlIZSTsvOVryTTGvZbJMkc2c23zqZNa9ljrO1YKUcOywkgrcXnvmfjz8bIYqkojyXxXskzeXh-bXBuXn4PQrw7Cp6r1XSBq14E8Lhfa4gcSKZG1FUDdd12aFE01jzgZZgznPhKXJ47ej7ZZIqKDCI4iuwh5sbFdExYWuAqP7ndoQM9rm9jsgwduKdd3q3NCtgX5UFKqD4GzCrtk6ztohHA1QywFLwVjEgLsyqnyrcpTV9Y0UD5XpbOt-31zDj9uKcrSASvb2ognTCWLKq8faRJzkQuoq1h6gNPaJxpZ4PCzE0UkJCNfQ_NDfAlaMcQdlsDHt82aq6Tu87Tn3YFJI3_tDv0k7TIB2-ExvT1SVkZAvZdiD91Ws6BNWdxwsVQVaLOyzvqXTsWQ2Zl-CQt_eZ1ol1iFeNdB9JU5RnHpOc02EH90t1YBT_avY9Fk9u9k05-5bpZwlLACCRtY_BqTQKxldjjMfek-L-tnMiSyDwQYTb3i4BnBgpM6NUuQxJZFoQ20os9TKeuk75M37M-Cej_cA_SSM6j3JKvbLFZjAimaoQ0kpDv9_EB-1q4'
+# 2. CONFIGURAÇÃO DE ACESSO (Suas chaves fornecidas)
+APP_KEY = '8qqcj9yjtmw8lic'
+APP_SECRET = 'tnspu3a9c0xpeeh'
+# Este token longo que você passou funciona como o "Refresh Token"
+REFRESH_TOKEN = 'sl.u.AGUko160ahwBTqIttavg0m57OQ4AqyIEpUAIaNWKC2a1noiuA77mFdls2UM_x_BkdMeAoSkGDq-IUiCgJJ9UzKsJz_aVI-VZ6-wqYC5cnQ4N_4Z18P2773hEmYy_aoN3mJeBgxRsoNBd6KtYERxISrlwn1Fc2ki4whMcopJPUXAtQd0oE2Me7nkK6o1HRFxlRhqE2wPKG8CIMwu6BBFee8L0-AtAmmWGsNhFex0x0eS9CgZQG0Jm6kmZVbqZJIHK9if0SgecVObzhp-f3e-Tzhsirw2BSYn1g9E-DQLY_9QkSz9hevBKFG6mQdVKyPTk60-YC70jL8WQYZPCYXy4aEeKAcs2IdgKN96wlomL9HzggCIZl_yugBn71oRl0goX_UnL9uUTrCb06p7M-rpGD4WuS5Ya0xMHiDFtrZcnIDTELBZN_55DYr3Pi7oPDmoC3_S1-PYxsxyW28cBY8BPxhDqMzUeal5799P8vHLd_d5n7aJyvSrTbEIig5M3S05Sak_AdegTMnJZTf9mWxxSLq-IHzF8bkX8i2E_cLl8sLoa375iMOiKAQapas3Bw8gruQDW9cjut3clCtZuLhiKFbIgEU6PZVeTm2FwFpeWs3qEBwRwZXR7__IvvnWpbijKteOe1h65Ulz4OY2n7E3PrUgzWgE6N_lOzNs0LUnetX1sc02i0P-3gGimpnljltco0XGAG5s3kK9_iBb1aVozpCGRZsSG-g-eJqXhtP9L-ui7kIx9pjJoiWQssB5-uMtQAmsDilxEJGj5sNZy--UAKDL9eJih59LJQ1Dlv4_EJACCrgRn9WNPVHlBmHONHr_LcnPqVN8YHOW_ydmuH_aWk6HLqFX6x7nSXWxIum6G-BZQbUjB_MjK3LtJxb0ZXlx5MT3IRMn3Z7npgjx5yOBXTZh9Yct0OPeBTR50nq0f_yBX6QeF74QeQg4Bs-hLw7bzP0kuNOFkZdImIslWed_tjXvTFe4IPoL-JgLC1uc0xuBFrYK-PUJZ7s4lBQeMxGNdJ3jazO5cEdadTi5h8gofFtqVTOyRoHxTFBmHMilpRbDkhAPFvwV5z4FPfjtvYTZDyjE8m9oR-YqxgMhV4PsLAmxbzpYO2Gj2FcaUF02sWOtBpy5ynNejzmyCWW4N-pwWbse-fsR10ZNg_8rP_twtMmirxEw5WugJJh1AHoGrYedBjxneekk1ZMxJkIhMmifJLGy3YyGxwFa1k5I87mVp9OQdWKxva4fs11wVYKH-nz9OfA1F8w_bO1dweJ9jZCI80sryjXrVzBCCylNxGVfkrgybtutIr0pvc2Kn1_hToOjMP2_NR4m_pkUkzm5H3f_XFcRMOuKpr3cIf3KAmw04FHRmKCOyhdg5mgmssjHtOoE0Cp7j3nlpPzIWICS9AuUbdxs'
 
-# 3. Captura da Foto
-arquivo_foto = st.camera_input("Toque aqui para abrir a câmera")
+# 3. Função de Captura e Upload
+arquivo_foto = st.camera_input("Toque abaixo para tirar a foto")
 
 if arquivo_foto:
     try:
-        dbx = dropbox.Dropbox(DROPBOX_TOKEN)
-        timestamp = datetime.now().strftime("%H%M%S")
-        nome_final = f"/foto_{timestamp}.jpg"
+        # Conexão automática que se renova sozinha usando as chaves
+        dbx = dropbox.Dropbox(
+            app_key=APP_KEY,
+            app_secret=APP_SECRET,
+            oauth2_refresh_token=REFRESH_TOKEN
+        )
         
-        with st.spinner('Enviando foto...'):
+        # Gerar nome único para a foto (Ex: foto_20260310_143005.jpg)
+        agora = datetime.now().strftime("%Y%m%d_%H%M%S")
+        nome_final = f"/foto_{agora}.jpg"
+        
+        with st.spinner('Enviando para o álbum de Adriana & Gilmar...'):
             dbx.files_upload(arquivo_foto.getvalue(), nome_final)
             
-        st.success("✅ Foto enviada! Obrigado por celebrar conosco! ✨")
-        st.balloons() 
+        st.success("✨ Foto enviada com sucesso! Obrigado por celebrar conosco!")
+        st.balloons()
         
     except Exception as e:
-        st.error("Erro ao enviar. Verifique o Token ou a internet.")
+        st.error(f"Erro ao enviar: {e}")
+        st.info("Tente novamente ou verifique sua conexão com a internet.")
